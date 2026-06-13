@@ -13,7 +13,7 @@ import { CircleButton } from '@/components/ui/CircleButton';
 import { PlayIcon, SearchIcon, ShuffleIcon } from '@/components/ui/icons';
 import { ScaleButton } from '@/components/ui/ScaleButton';
 import { TrackRow } from '@/features/library/TrackRow';
-import { Artwork } from '@/features/player/Artwork';
+import { VinylThumb } from '@/features/player/VinylThumb';
 import { useRecents } from '@/hooks/library';
 import { useCurrentTrack, useIsPlaying } from '@/hooks/player';
 import { playTrack } from '@/lib/player/controls';
@@ -129,8 +129,8 @@ export const Library = () => {
             >
               {recents.map((track) => (
                 <Pressable key={track.id} onPress={() => play(track)} style={styles.recentCard}>
-                  <View style={[styles.recentArt, shadow('#493118', 0.18, 22, 10, 6)]}>
-                    <Artwork track={track} size={128} radius={20} />
+                  <View style={[styles.recentArt, shadow('#493118', 0.22, 20, 10, 6)]}>
+                    <VinylThumb track={track} size={128} />
                   </View>
                   <Text numberOfLines={1} style={styles.recentAlbum}>
                     {track.album}
@@ -204,7 +204,7 @@ const styles = StyleSheet.create({
   recentsLabel: { paddingHorizontal: 22, paddingTop: 10, paddingBottom: 10 },
   recentsRow: { paddingHorizontal: 22, paddingTop: 2, paddingBottom: 8, gap: 14 },
   recentCard: { width: 128 },
-  recentArt: { borderRadius: 20 },
+  recentArt: { borderRadius: 64 },
   recentAlbum: { marginTop: 9, fontFamily: fonts.bodyBold, fontSize: 14, color: colors.ink },
   recentArtist: { marginTop: 1, fontFamily: fonts.body, fontSize: 12.5, color: colors.muted },
   allSongsLabel: { paddingHorizontal: 22, paddingTop: 18, paddingBottom: 6 },

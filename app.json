@@ -65,7 +65,8 @@
           "imageWidth": 180,
           "backgroundColor": "#FAF4E8"
         }
-      ]
+      ],
+      "./plugins/withReleaseSigning"
     ]
   }
 }

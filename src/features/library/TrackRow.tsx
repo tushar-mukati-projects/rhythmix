@@ -1,7 +1,7 @@
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { Artwork } from '@/features/player/Artwork';
 import { Equalizer } from '@/features/player/Equalizer';
+import { VinylThumb } from '@/features/player/VinylThumb';
 import { formatTime } from '@/lib/format';
 import { colors, fonts, shadow } from '@/lib/theme';
 import { Track } from '@/types';
@@ -21,8 +21,8 @@ export const TrackRow = React.memo(({ track, isCurrent, playing, onPress }: Trac
       pressed && { backgroundColor: colors.rowPress },
     ]}
   >
-    <View style={[styles.art, shadow('#493118', 0.14, 10, 4)]}>
-      <Artwork track={track} size={50} radius={14} />
+    <View style={[styles.art, shadow('#493118', 0.18, 8, 3)]}>
+      <VinylThumb track={track} size={50} />
     </View>
     <View style={styles.meta}>
       <Text
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     paddingVertical: 9,
     paddingHorizontal: 22,
   },
-  art: { borderRadius: 14 },
+  art: { borderRadius: 25 },
   meta: { flex: 1, minWidth: 0 },
   title: { fontFamily: fonts.bodyBold, fontSize: 15.5, color: colors.ink },
   subtitle: {
